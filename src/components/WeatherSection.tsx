@@ -1,13 +1,14 @@
+import { ImSpinner } from "react-icons/im";
 import { MdError } from "react-icons/md";
 import { useAppSelector } from "../hooks";
 import WeatherMetrix from "./WeatherMetrix";
 import WeatherTemp from "./WeatherTmp";
 
-import { ImSpinner } from "react-icons/im";
-
+// WeatherSection Component
 const WeatherSection = () => {
   const { data, loading, error } = useAppSelector((state) => state.weather);
 
+  // Handling loading state
   if (loading) {
     return (
       <div className="mt-8 p-6 text-center text-gray-800 dark:text-white max-w-sm mx-auto">
@@ -21,6 +22,7 @@ const WeatherSection = () => {
     );
   }
 
+  // Handling error state
   if (error) {
     return (
       <div className="mt-8 p-6 text-center text-red-500 max-w-sm mx-auto bg-white dark:bg-gray-700 rounded-lg shadow-lg">
@@ -33,8 +35,10 @@ const WeatherSection = () => {
     );
   }
 
+  // If there's no data, return null
   if (!data) return null;
 
+  // Passing the necessary props to WeatherTemp and WeatherMetrix components
   return (
     <>
       <WeatherTemp
