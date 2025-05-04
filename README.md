@@ -19,9 +19,12 @@ Build a responsive Weather Application using:
 
 ### 2. Project Structure
 - **/components**: Reusable UI components.
-- **/store**: Redux store and slices.
+- **/features**: Redux slices.
+- **/store**: Redux store.
 - **/types**: TypeScript interfaces.
-- **/pages**: Main page components.
+- **/context**: For context api.
+- **/hook**: for custom hook.
+
 
 ### 3. Redux & Weather Data
 - Used **Redux Toolkit** to manage weather data.
@@ -29,7 +32,7 @@ Build a responsive Weather Application using:
 
 ### 4. UI Implementation
 - **SearchBar** for city input and weather fetch.
-- **WeatherCard** to display city, temperature, description, and icons.
+- **WeatherSection** to display city, temperature, description, and icons.
 - **WeatherMetrics** to show wind speed, humidity, and min/max temp.
 - Responsive layout with Tailwind CSS and dark mode support.
 
