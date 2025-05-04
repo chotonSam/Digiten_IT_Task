@@ -12,15 +12,9 @@ type WeatherTempProps = {
   city: string;
   temperature: number;
   condition: string;
-  icon: string;
 };
 
-const WeatherTemp = ({
-  city,
-  temperature,
-  condition,
-  icon,
-}: WeatherTempProps) => {
+const WeatherTemp = ({ city, temperature, condition }: WeatherTempProps) => {
   const getWeatherIcon = (condition: string) => {
     switch (condition.toLowerCase()) {
       case "clear":
