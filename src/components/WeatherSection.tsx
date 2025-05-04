@@ -1,22 +1,3 @@
-// Define types for the weather data response
-interface Weather {
-  main: {
-    temp: number;
-    temp_max: number;
-    temp_min: number;
-    humidity: number;
-  };
-  weather: Array<{
-    main: string;
-    description: string;
-    icon: string;
-  }>;
-  wind: {
-    speed: number;
-  };
-  name: string; // City name
-}
-
 import { ImSpinner } from "react-icons/im";
 import { MdError } from "react-icons/md";
 import { useAppSelector } from "../hooks";
