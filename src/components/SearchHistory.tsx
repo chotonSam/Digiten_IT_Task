@@ -6,7 +6,9 @@ import { useAppDispatch, useAppSelector } from "../hooks";
 
 const SearchHistory = () => {
   const dispatch = useAppDispatch();
-  const history = useAppSelector((state) => state.weather.searchHistory);
+  const history: string[] = useAppSelector(
+    (state) => state.weather.searchHistory
+  );
 
   const [isHistoryVisible, setIsHistoryVisible] = useState(false);
 
@@ -48,7 +50,7 @@ const SearchHistory = () => {
           </div>
           <ul className="space-y-1 mt-2">
             {history.length > 0 ? (
-              history.map((city, idx) => (
+              history.map((city: string, idx: number) => (
                 <li
                   key={idx}
                   onClick={() => dispatch(fetchWeather(city))}

@@ -41,7 +41,7 @@ const WeatherTemp = ({
   };
 
   return (
-    <div className="mt-8 p-6 text-center text-gray-800 dark:text-white max-w-sm mx-auto upp">
+    <div className="mt-8 p-6 text-center text-gray-800 dark:text-white max-w-sm mx-auto">
       <h2 className="text-3xl font-bold mb-2">{city}</h2>
 
       {/* Weather Icon */}
