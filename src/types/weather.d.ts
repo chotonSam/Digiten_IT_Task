@@ -3,6 +3,8 @@ export interface WeatherData {
   main: {
     temp: number;
     humidity: number;
+    temp_min: number; // Add this property
+    temp_max: number; // Add this property
   };
   weather: {
     main: string;

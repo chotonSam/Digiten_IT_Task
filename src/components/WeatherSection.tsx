@@ -4,6 +4,7 @@ import { useAppSelector } from "../hooks";
 import WeatherMetrix from "./WeatherMetrix";
 import WeatherTemp from "./WeatherTmp";
 
+// The component uses the `WeatherData` type correctly now.
 const WeatherSection = () => {
   const { data, loading, error } = useAppSelector((state) => state.weather);
 
