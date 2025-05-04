@@ -4,8 +4,29 @@ import { useAppSelector } from "../hooks";
 import WeatherMetrix from "./WeatherMetrix";
 import WeatherTemp from "./WeatherTmp";
 
+// Optional: If you want strong typing
+type WeatherState = {
+  data: {
+    name: string;
+    main: {
+      temp: number;
+      humidity: number;
+      temp_min: number;
+      temp_max: number;
+    };
+    weather: { main: string }[];
+    wind: {
+      speed: number;
+    };
+  } | null;
+  loading: boolean;
+  error: string | null;
+};
+
 const WeatherSection = () => {
-  const { data, loading, error } = useAppSelector((state) => state.weather);
+  const { data, loading, error } = useAppSelector(
+    (state): WeatherState => state.weather
+  );
 
   if (loading) {
     return (
