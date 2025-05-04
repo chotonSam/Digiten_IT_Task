@@ -1,54 +1,43 @@
-# React + TypeScript + Vite
+# Weather App – Development Documentation
+👨‍💻 **Developed by:** Fakhar Uzzaman (Sayem)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🧭 Project Goal
+Build a responsive Weather Application using:
+- **React + TypeScript**
+- **Tailwind CSS** for styling
+- **OpenWeatherMap API** for weather data
+- **Redux Toolkit** for state management
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧱 Development Process
 
-## Expanding the ESLint configuration
+### 1. Project Setup
+- Initialized project with **Vite** for React + TypeScript.
+- Installed dependencies: **Axios**, **React-Redux**, **Redux Toolkit**, **Tailwind CSS**.
+- Configured Tailwind CSS for responsive design.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 2. Project Structure
+- **/components**: Reusable UI components.
+- **/store**: Redux store and slices.
+- **/types**: TypeScript interfaces.
+- **/pages**: Main page components.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### 3. Redux & Weather Data
+- Used **Redux Toolkit** to manage weather data.
+- Set up async thunks to fetch weather data from OpenWeatherMap API.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 4. UI Implementation
+- **SearchBar** for city input and weather fetch.
+- **WeatherCard** to display city, temperature, description, and icons.
+- **WeatherMetrics** to show wind speed, humidity, and min/max temp.
+- Responsive layout with Tailwind CSS and dark mode support.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### 5. Theme Context with Dark Mode Toggle
+- **Dark mode** was implemented using a custom **ThemeContext** to manage the theme state globally.
+- The `ThemeContext` provides a `toggleTheme` function that switches between light and dark modes.
+- **Context API** was used to share the theme state across the application:
+  - **`ThemeContext.Provider`** wraps the entire app to supply the current theme and toggle function.
+  - The **`useTheme`** hook allows easy access to the theme state and toggle function.
+  
+- When the theme is toggled, the `html` class is updated to either `dark` or `light`, and the theme preference is stored in `localStorage` for persistence across sessions.
